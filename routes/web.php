@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\VentaController;
+use App\Http\Controllers\DetalleVentaController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PrendaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/ventas", [ReservaController::class, "mostrar"]);
+Route::get("/actualizar/{reserva_id}", [ReservaController::class, "actualizar_form"]);
+Route::post("/reservar", [VentaController::class, "registrarProducto"]);
+
